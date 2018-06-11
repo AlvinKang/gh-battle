@@ -7,14 +7,15 @@ class PlayerInput extends React.Component {
     this.state = {
       username: ""
     };
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    const value = event.target.value;
+    const username = event.target.value;
     this.setState({
-      username: value
+      username: username
     });
   }
 
@@ -69,17 +70,16 @@ class Battle extends React.Component {
 
   handleSubmit(id, username) {
     const newState = {};
-    newState[id + "Name"] = username;
-    newState[id + "Image"] = `https://github.com/${username}.png?size=200`;
 
+    // id is either playerOne or playerTwo
+    newState[`${id}Name`] = username;
+    newState[`${id}Image`] = `https://github.com/${username}.png?size=200`;
     this.setState(newState);
   }
 
   render() {
     const playerOneName = this.state.playerOneName;
     const playerTwoName = this.state.playerTwoName;
-    const playerOneImage = this.state.playerOneImage;
-    const playerTwoImage = this.state.playerTwoImage;
 
     return (
       <div>
