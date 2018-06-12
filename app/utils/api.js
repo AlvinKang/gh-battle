@@ -1,20 +1,18 @@
 const axios = require("axios");
 
 // For rate limits
-// const CLIENT_ID = "";
-// const CLIENT_SECRET = "";
-// const params = `?client_id${CLIENT_ID}&client_secret=${CLIENT_SECRET}`;
+const CLIENT_ID = "174df65e6f96d91ede50";
+const CLIENT_SECRET = "73bb61fd1a6e5e31b82e16c43ee2206d205fc93f";
+const params = `?client_id${CLIENT_ID}&client_secret=${CLIENT_SECRET}`;
 
 function getProfile(username) {
   return axios
-    .get(`https://api.github.com/users/${username}`)
+    .get(`https://api.github.com/users/${username}${params}`)
     .then(user => user.data);
 }
 
 function getRepos(username) {
-  return axios.get(
-    `https://api.github.com/users/${username}/repos&per_page=100`
-  );
+  return axios.get(`https://api.github.com/users/${username}/repos${params}`);
 }
 
 function getStarCount(repos) {
@@ -51,8 +49,6 @@ function getUserData(player) {
 function sortPlayers(players) {
   return players.sort((a, b) => b.score - a.score);
 }
-
-api.battle([]);
 
 module.exports = {
   battle: function(players) {
