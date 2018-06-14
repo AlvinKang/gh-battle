@@ -4,7 +4,7 @@ const credentials = require("../../credentials");
 // For rate limits
 const CLIENT_ID = credentials.CLIENT_ID;
 const CLIENT_SECRET = credentials.CLIENT_SECRET;
-const params = `?client_id${CLIENT_ID}&client_secret=${CLIENT_SECRET}`;
+const params = `?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`;
 
 function getProfile(username) {
   return axios
