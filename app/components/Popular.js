@@ -4,7 +4,7 @@
 // const Loading = require("./Loading");
 import React from "react";
 import PropTypes from "prop-types";
-import { battle, fetchPopularRepos } from "../utils/api";
+import { fetchPopularRepos } from "../utils/api";
 import Loading from "./Loading";
 
 function SelectLanguage({ selectedLanguage, onSelect }) {
