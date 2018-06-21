@@ -1,7 +1,3 @@
-// const React = require("react");
-// const PropTypes = require("prop-types");
-// const api = require("../utils/api");
-// const Loading = require("./Loading");
 import React from "react";
 import PropTypes from "prop-types";
 import { fetchPopularRepos } from "../utils/api";
@@ -65,20 +61,16 @@ RepoGrid.propTypes = {
 };
 
 class Popular extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedLanguage: "All",
-      repos: null
-    };
-    this.updateLanguage = this.updateLanguage.bind(this);
-  }
+  state = {
+    selectedLanguage: "All",
+    repos: null
+  };
 
   componentDidMount() {
     this.updateLanguage(this.state.selectedLanguage);
   }
 
-  updateLanguage(language) {
+  updateLanguage = language => {
     this.setState({
       selectedLanguage: language,
       repos: null
@@ -88,7 +80,7 @@ class Popular extends React.Component {
         repos
       });
     });
-  }
+  };
 
   render() {
     const { selectedLanguage, repos } = this.state;

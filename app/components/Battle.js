@@ -4,27 +4,31 @@ import { Link } from "react-router-dom";
 import PlayerPreview from "./PlayerPreview";
 
 class PlayerInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: ""
-    };
+  static propTypes = {
+    id: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    onSubmit: PropTypes.func.isRequired
+  };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  static defaultProps = {
+    label: "Username"
+  };
 
-  handleChange(event) {
+  state = {
+    username: ""
+  };
+
+  handleChange = event => {
     const username = event.target.value;
     this.setState(() => ({
       username: username
     }));
-  }
+  };
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
     this.props.onSubmit(this.props.id, this.state.username);
-  }
+  };
 
   render() {
     const { username } = this.state;
@@ -48,12 +52,6 @@ class PlayerInput extends React.Component {
     );
   }
 }
-
-PlayerInput.propTypes = {
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  onSubmit: PropTypes.func.isRequired
-};
 
 class Battle extends React.Component {
   constructor(props) {

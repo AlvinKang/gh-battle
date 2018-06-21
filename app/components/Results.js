@@ -54,15 +54,12 @@ Player.propTypes = {
 };
 
 class Results extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      winner: null,
-      loser: null,
-      error: null,
-      loading: true
-    };
-  }
+  state = {
+    winner: null,
+    loser: null,
+    error: null,
+    loading: true
+  };
 
   componentDidMount() {
     const { playerOneName, playerTwoName } = queryString.parse(
