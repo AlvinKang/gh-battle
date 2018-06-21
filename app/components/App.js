@@ -1,12 +1,12 @@
 const React = require("react");
-const Popular = require("./Popular");
+import Popular from "./Popular";
 const ReactRouter = require("react-router-dom");
 const Router = ReactRouter.BrowserRouter;
 const Route = ReactRouter.Route;
 const Switch = ReactRouter.Switch;
 const Nav = require("./Nav");
 const Home = require("./Home");
-const Battle = require("./Battle");
+import Battle from "./Battle";
 const Results = require("./Results");
 
 class App extends React.Component {
