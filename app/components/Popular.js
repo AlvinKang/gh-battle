@@ -1,7 +1,8 @@
 const React = require("react");
 const PropTypes = require("prop-types");
 const api = require("../utils/api");
-const Loading = require("./Loading");
+// const Loading = require("./Loading");
+import Loading from "./Loading";
 
 function SelectLanguage(props) {
   const languages = ["All", "JavaScript", "Ruby", "Java", "CSS", "Python"];
